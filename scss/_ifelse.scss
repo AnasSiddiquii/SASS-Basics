@@ -1,0 +1,38 @@
+.if{
+    @if $test < 1 { color: blue; }
+    @if $test == 3 { font-size: 12px; }
+}
+
+.else{
+    @if $test < 10 { color: blue; }
+    @else { font-size: 12px; }
+}
+
+.elseif{
+    @if $test == 1 { color: blue; }
+    @else if $test == 2{ font-size: 10px; }
+    @else { font-size: 12px; }
+}
+
+@mixin changeColor($value){
+    font-size: $value + px;
+    @if $value > 0 and $value <=25{
+        color: red;
+    }
+    @else if $value > 25 and $value <=50{
+        color: green;
+    }
+    @else{
+        color: blue;
+    }
+}
+
+.test1{
+    @include changeColor(25)
+}
+.test2{
+    @include changeColor(50)
+}
+.test3{
+    @include changeColor(75)
+}

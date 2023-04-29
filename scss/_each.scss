@@ -1,0 +1,24 @@
+// simple list
+$list: normal, bold, italic;
+@each $i in $list{
+    .#{$i} {
+        font-weight: $i;
+    }
+}
+
+// multi-dimensional list
+$list: ((dark, bold, 10px),(emphasis, italic, 15px));
+@each $name, $style, $size in $list{
+    .#{$name} {
+        font-weight: $style;
+        font-size: $size;
+    }
+}
+
+// multi-dimensional list with maps
+$map: (normal: 12px, bold: 14px, italic: 16px);
+@each $key, $val in $map{
+    .#{$key} {
+        font-size: $val;
+    }
+}

@@ -1,0 +1,72 @@
+// * operators
+// * variables
+// * nesting and inheritance( & )
+// * mixin and include
+// * parameters
+// * import ( _filename ) 
+// * diff css folder ( settings > sass format)
+// * interpolation
+// ! media directives
+// ! function
+// ! if else
+// ! for directives
+// ! each directives
+// ! while directives
+
+@import  'variables';
+@import  'mixins';
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 62.5%;
+} 
+
+.main_header{
+    width: 100vw;
+    height: 100vh;
+    @include flex; // mixin
+    background-color: transparentize($bg-color,0.5); // color rgba
+    
+    h1 { // nesting
+        @include common(1rem, uppercase); // mixin + parameter
+        
+    }
+    
+    p {
+        @include common(0.3rem, capitalize); // mixin + parameter
+        
+        &::after{ // multi nesting
+            content: 'Web';
+        }   
+        
+    }
+    
+}
+
+.color-#{$bg-color}{ // interpolation
+    color:skyblue;
+}
+
+// advance
+@import  'media';
+@import  'functions';
+@import  'ifelse';
+@import  'for';
+@import  'each';
+@import  'while';
+
+$x: 10;
+$s: 10;
+@while $x <= 50 {
+    .padding-#{$x} {
+        padding-left: $x * 1px ;
+        font-size: $s + px ;
+    }
+    $x : $x + 10;
+    $s : $s + 2;
+}

@@ -1,0 +1,16 @@
+@for $i from 1 through 3 {
+    .list-#{$i} {
+        width: 100px * $i;
+        background: darken(pink, $i * 10%);
+        padding: 10px * $i;
+    }
+}
+
+// same but doesn't count 4
+// ? @for $i from 1 to 4 {
+// ?     .list-#{$i} {
+// ?         width: 100px * $i;
+// ?         background: darken(pink, $i * 10%);
+// ?         padding: 10px * $i;
+// ?     }
+// ? }
